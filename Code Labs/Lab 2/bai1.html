@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 1</title>
+    <style>
+        p{
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="inputString">Nhập chuỗi:</label>
+    <input type="text" id="inputString" />
+    <button onclick="countStringLength()">Count</button>
+
+    <p id="result"></p>
+
+    <script>
+        function countStringLength() {
+            // Lấy giá trị từ ô nhập
+            const inputElement = document.getElementById('inputString');
+            const inputValue = inputElement.value;
+
+            // Sử dụng hàm length để đếm độ dài của chuỗi
+            const stringLength = inputValue.length;
+
+            // Hiển thị kết quả
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = `Độ dài của chuỗi là: ${stringLength}`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2.1</title>
+    <style>
+        .color{
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txtInput" class="color" value="3391E">
+    <h3>Input text</h3>
+    <script>
+        var h3Text = document.querySelector("h3");
+        var txtInput = document.querySelector("#txtInput");
+        txtInput.onkeyup = function(){
+            var inputText = txtInput.value;
+            h3Text.innerText = inputText;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4</title>
+</head>
+<body>
+    <h2>Loading...</h2>
+    <script>
+        /* Nâng cấp Bài tập 1: Với các yêu cầu sau:
+        - điểm Assignment 1 được nhập sau 1s,
+        - điểm assignment2 được nhập sau 10s,
+        - sau đó tính điểm trung bình. */
+        /* Bài tập này, chúng ta sử dụng cách tạo Promise bằng constructor Promise và kết hợp với Promise.all() 
+        để xử lý nhiều Promise cùng một lúc và lấy kết quả của chúng. */
+        function assignment1() {
+            return new Promise((resolve, reject) => {
+                // Chờ 1s để nhập điểm assignment 1
+                setTimeout(() => {
+                    var ass1 = prompt('Nhập điểm assignment 1:');
+                    return resolve(parseFloat(ass1));
+                }, 1000);
+            });
+        }
+
+        function assignment2() {
+            return new Promise((resolve, reject) => {
+                // Chờ 5s để nhập điểm assignment 1
+                setTimeout(() => {
+                    var ass2 = prompt('Nhập điểm assignment 2:');
+                    return resolve(parseFloat(ass2));
+                }, 5000);
+            });
+        }
+
+        Promise.all([assignment1(), assignment2()])
+            .then((result) => {
+                // result là 1 mảng chứa các giá trị trả về tự các resolve
+                console.log(result);
+                var avgScore = (result[0] + result[1])/2;
+                alert('Điểm trung bình của bạn là: ' + avgScore);
+            })
+    </script>
+</body>
+</html>

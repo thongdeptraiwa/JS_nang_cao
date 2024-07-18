@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Phone</title>
+</head>
+<body>
+    <div>
+        <label for="">Số điện thoại:</label>
+        <input type="number" id="phoneNumber" value="" placeholder="Nhập số điện thoại">
+        <br>
+        <span style="color: red;" id="validateMsg"></span>
+    </div>
+
+    <script>
+        var input = document.querySelector("#phoneNumber");
+        var validateMsg = document.querySelector("#validateMsg");
+
+        input.onblur = function(){
+            var val = this.value;
+            var pattern = /(09|03)+([0-9]{8})\b/g;
+            var check = pattern.test(val);
+            if(!check){
+                validateMsg.innerText = "Bạn nhập không đúng số điện thoại";
+            }else{
+                validateMsg.innerText = "Đúng rồi";
+            }
+        }
+    </script>
+</body>
+</html>

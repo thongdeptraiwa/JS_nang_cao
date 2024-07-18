@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 6</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+</head>
+
+<body>
+    <form id="dateForm">
+        <div>
+            <label for="inputDay">Day:</label>
+            <input type="number" id="inputDay" placeholder="Day" min="1" max="31" required>
+        </div>
+        <div>
+            <label for="inputMonth">Month:</label>
+            <input type="number" id="inputMonth" placeholder="Month" min="1" max="12" required>
+        </div>
+        <div>
+            <label for="inputYear">Year:</label>
+            <input type="number" id="inputYear" placeholder="Year" min="1900" max="2100" required>
+        </div>
+        <div>
+            <button type="button" onclick="convertDate()">Convert</button>
+        </div>
+    </form>
+
+    <div id="result"></div>
+    <script>
+        function convertDate() {
+            const day = document.getElementById("inputDay").value;
+            const month = document.getElementById("inputMonth").value;
+            const year = document.getElementById("inputYear").value;
+
+            const date = moment(`${year}-${month}-${day}`, "YYYY-MM-DD");
+
+            const dayOfWeek = date.format("dddd");
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `Ngày trong tuần: ${dayOfWeek}`;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+Phần 1: Khái niệm JSON Object
+
+JSON (JavaScript Object Notation) là một định dạng dữ liệu lightweight và dễ đọc được, thường được sử dụng để truyền tải
+dữ liệu giữa máy chủ và trình duyệt web hoặc giữa các hệ thống khác nhau. JSON được thiết kế để dễ dàng đọc và viết cho con
+người và dễ dàng parse và tạo ra bởi máy.
+
+Một JSON object là một tập hợp các cặp "key-value" (khóa-giá trị) được bao quanh bởi cặp dấu ngoặc nhọn {}. Mỗi cặp "key-value"
+trong JSON object được phân tách bằng dấu phẩy.
+
+Một số ví dụ cơ bản về JSON object:
+
+1) Ví dụ 1: Mô tả lại 1 người (1 object) bằng JSON
+{
+  "name": "John",
+  "age": 25,
+  "city": "New York",
+  "isStudent": false
+}
+Trong ví dụ trên:
+
+"name", "age", "city", "isStudent" là các key (khóa).
+"John", 25, "New York", false là các giá trị tương ứng với key tương ứng.
+Mỗi cặp key-value được phân tách bởi dấu phẩy.
+JSON object được bao quanh bởi dấu ngoặc nhọn {}.
+
+2) Ví dụ 2: Mô tả lại 2 object bằng JSON
+[
+    {
+        "name": "John",
+        "age": 25,
+        "city": "New York",
+        "isStudent": false
+    },
+    {
+        "name": "Alice",
+        "age": 27,
+        "city": "London",
+        "isStudent": true
+    }
+]
+
+Lưu ý rằng giá trị trong JSON object có thể là một chuỗi (được đặt trong dấu ngoặc kép), một số, một object khác, một mảng,
+hoặc một giá trị boolean (true hoặc false), hoặc null.
+
+Ví dụ với giá trị là một object khác:
+{
+  "person": {
+    "name": "Alice",
+    "age": 30
+  },
+  "city": "London"
+}
+Trong ví dụ này, "person" là một key có giá trị là một JSON object khác.

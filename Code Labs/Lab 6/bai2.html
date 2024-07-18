@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2</title>
+    <style>
+        #target{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="target"></ul>
+    <script>
+        // Mảng chứa các sản phẩm
+        var products = [
+            { id: 1, name: "Product 1", image: "https://abc.com/image1.jpg", cate_id: 1, price: 50 },
+            { id: 2, name: "Product 2", image: "https://abc.com/image2.jpg", cate_id: 2, price: 70 },
+            { id: 3, name: "Product 3", image: "https://abc.com/image3.jpg", cate_id: 1, price: 80 },
+            { id: 4, name: "Product 4", image: "https://abc.com/image4.jpg", cate_id: 3, price: 60 },
+            { id: 5, name: "Product 5", image: "https://abc.com/image5.jpg", cate_id: 2, price: 90 }
+
+        ];
+        var ulElement = document.querySelector("#target");
+
+        new Promise(function (resolve, reject) {
+            var strContent = "";
+            products.forEach(function (val, index) {
+                // TODO viết code tại đây
+                // Cộng dồn nội dung cho biến strContent
+                // <li>tên của sản phẩm</li>
+                strContent += `<li>${val.name}</li>`;
+            });
+            return resolve(strContent);
+        }).then(function (data) {
+            // Sử dụng innerHTML để thêm nội dung cho thẻ ul
+            ulElement.innerHTML = data;
+        });
+    </script>
+</body>
+
+</html>

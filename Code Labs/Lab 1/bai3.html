@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 3</title>
+    <style>
+        .user_item{
+            color: green;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul id="target"></ul>
+    <script>
+        var users = [
+            {
+                id: 1, 
+                name: "James Smith", 
+                gender: 1
+            },
+            {
+                id: 2, 
+                name: "Isla Brown", 
+                gender: 2
+            },
+            {
+                id: 3, 
+                name: "Amelia Davies", 
+                gender: 2
+            },
+            {
+                id: 4, 
+                name: "Jacob Evans", 
+                gender: 1
+            }
+        ];
+        var target = document.querySelector("#target");
+
+        users.map(function(user){
+            var li = document.createElement("li");
+            li.classList.add("user_item");
+            var gender = user.gender == 1 ? "male" : "female";
+            li.innerText = user.id + " - " + user.name + " - " + gender;
+            target.appendChild(li);
+        });
+    </script>
+</body>
+</html>

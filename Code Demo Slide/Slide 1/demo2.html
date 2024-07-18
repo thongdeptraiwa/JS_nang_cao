@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thay doi mau cua the (even)</title>
+    <style>
+        #target {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="target"></div>
+    <script>
+        // Xác định thẻ sẽ là đối tượng tương tác
+        var divTag = document.querySelector("#target");
+        //document.querySelector("div");
+        //document.getElementById("target");
+
+        // Setup sự kiện onmouseover - khi sự kiện xảy ra hàm được gắn sẽ thực thi
+        divTag.onmouseover = function () {
+            // this là DOM (thẻ) nhận được sự kiện
+            // sử dụng thuộc tính style để thay đổi màu nền của DOM
+            this.style.backgroundColor = "brown";
+        };
+        divTag.onmouseout = function () {
+            this.style.backgroundColor = "green";
+        };
+    </script>
+</body>
+
+</html>

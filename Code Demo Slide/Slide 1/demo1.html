@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thay doi text</title>
+</head>
+
+<body>
+    <p>Hello World!</p>
+    <script>
+        // Tạo biến đại diện cho thẻ p đầu tiên tìm được
+        var pTag = document.querySelector("p")
+        //document.getElementsByTagName("p")
+
+        // Hàm thực thi lệnh sau 3s
+        setTimeout(function () {
+            // Sử dụng thuộc tính style để thay đổi màu nền và màu chữ
+            pTag.style.backgroundColor = "#33691E";
+            pTag.style.color = "#fff";
+
+            // Sử dụng thuộc tính innerText để thay đổi nội dung
+            pTag.innerText = "Hello Poly!";
+        }, 3000)
+    </script>
+</body>
+
+</html>

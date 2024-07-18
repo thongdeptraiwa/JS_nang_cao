@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 4</title>
+</head>
+
+<body>
+    <ul id="target"></ul>
+    <script>
+        // Sử dụng fetch() để gửi request GET đến đường dẫn
+        fetch("https://reqres.in/api/users?page=1&per_page=10")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Hiển thị kết quả lên giao diện
+                const ulElement = document.getElementById("target");
+
+                data.data.forEach(user => {
+                    const liElement = document.createElement("li");
+                    liElement.textContent = `${user.id} - ${user.first_name} ${user.last_name}`;
+                    ulElement.appendChild(liElement);
+                });
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+            });
+    </script>
+</body>
+
+</html>

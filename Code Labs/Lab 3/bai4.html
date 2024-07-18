@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Profile</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <div>
+                <label for="firstName">First Person Name:</label>
+                <input type="text" id="firstName" />
+            </div>
+            <div>
+                <label for="firstAge">Age:</label>
+                <input type="number" id="firstAge" />
+            </div>
+            <div>
+                <label for="firstAddress">Address:</label>
+                <input type="text" id="firstAddress" />
+            </div>
+        </div>
+    
+        <div>
+            <div>
+                <label for="secondName">Second Person Name:</label>
+                <input type="text" id="secondName" />
+            </div>
+            <div>
+                <label for="secondAge">Age:</label>
+                <input type="number" id="secondAge" />
+            </div>
+            <div>
+                <label for="secondAddress">Address:</label>
+                <input type="text" id="secondAddress" />
+            </div>
+        </div>
+    
+        <button type="button" onclick="showProfiles()">Show Profile</button>
+    </form>
+    
+
+    <p id="firstPersonProfile"></p>
+    <p id="secondPersonProfile"></p>
+
+    <script>
+        // Định nghĩa constructor function Person
+        function Person(name, age, address) {
+            this.Name = name;
+            this.Age = age;
+            this.Address = address;
+        }
+
+        // Phương thức hiển thị thông tin profile
+        Person.prototype.showProfile = function () {
+            return `Name: ${this.Name}, Age: ${this.Age}, Address: ${this.Address}`;
+        };
+
+        // Khởi tạo đối tượng FirstPerson
+        var FirstPerson = new Person();
+
+        // Khởi tạo đối tượng SecondPerson
+        var SecondPerson = new Person();
+
+        function showProfiles() {
+            // Lấy giá trị từ người dùng
+            var firstName = document.getElementById('firstName').value;
+            var firstAge = document.getElementById('firstAge').value;
+            var firstAddress = document.getElementById('firstAddress').value;
+
+            var secondName = document.getElementById('secondName').value;
+            var secondAge = document.getElementById('secondAge').value;
+            var secondAddress = document.getElementById('secondAddress').value;
+
+            // Kiểm tra nhập đầy đủ thông tin
+            if (!firstName || !firstAge || !firstAddress || !secondName || !secondAge || !secondAddress) {
+                alert('Yêu cầu nhập đầy đủ thông tin.');
+                return;
+            }
+
+            // Gán giá trị cho các thuộc tính của đối tượng FirstPerson
+            FirstPerson.Name = firstName;
+            FirstPerson.Age = firstAge;
+            FirstPerson.Address = firstAddress;
+
+            // Gán giá trị cho các thuộc tính của đối tượng SecondPerson
+            SecondPerson.Name = secondName;
+            SecondPerson.Age = secondAge;
+            SecondPerson.Address = secondAddress;
+
+            // Hiển thị thông tin profile
+            document.getElementById('firstPersonProfile').textContent = FirstPerson.showProfile();
+            document.getElementById('secondPersonProfile').textContent = SecondPerson.showProfile();
+
+            // Xoá giá trị nhập
+            document.getElementById('firstName').value = "";
+            document.getElementById('firstAge').value = "";
+            document.getElementById('firstAddress').value = "";
+            document.getElementById('secondName').value = "";
+            document.getElementById('secondAge').value = "";
+            document.getElementById('secondAddress').value = "";
+        }
+    </script>
+</body>
+
+</html>

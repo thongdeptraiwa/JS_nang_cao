@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2</title>
+    <style>
+        p{
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" id="conversionForm">
+        <div>
+            <label for="inputString">String:</label>
+            <input type="text" id="inputString" />
+        </div>
+        <div>
+            <label for="inputNumber">Number:</label>
+            <input type="number" id="inputNumber" />        
+        </div>
+        <div>
+            <button type="button" onclick="convertString()">Convert</button>
+        </div>
+    </form>
+    
+    <p id="result"></p>
+
+    <script>
+        function convertString() {
+            const inputStringElement = document.getElementById('inputString');
+            const inputString = inputStringElement.value;
+
+            const inputNumberElement = document.getElementById('inputNumber');
+            const inputNumber = parseInt(inputNumberElement.value);
+
+            if (isNaN(inputNumber) || inputNumber <= 0) {
+                alert('Vui lòng nhập một số dương n.');
+                return;
+            }
+
+            const truncatedString = inputString.slice(0, inputNumber);
+
+            const resultString = inputString.length > inputNumber ? truncatedString + '...' : truncatedString + '.';
+
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = resultString;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios Demo</title>
+</head>
+
+<body>
+    <h1>Axios Demo</h1>
+    <button onclick="loadData()">Load Data</button>
+    <div id="data-container"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function loadData() {
+            // Sử dụng Axios (hay API của Axios) để thực hiện gửi yêu cầu GET
+            axios.get("https://jsonplaceholder.typicode.com/todos/1")
+                .then(function (response) {
+                    // Xử lý dữ liệu nhận được từ máy chủ
+                    var data = response.data;
+                    displayData(data);
+                })
+                .catch(function (error) {
+                    // Xử lý lỗi nếu có
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        function displayData(data) {
+            // Hiển thị dữ liệu trong container
+            var dataContainer = document.querySelector("#data-container");
+            dataContainer.innerHTML = "<strong>User ID:</strong> " + data.userId + "<br>" +
+                "<strong>ID:</strong> " + data.id + "<br>" +
+                "<strong>Title:</strong> " + data.title + "<br>" +
+                "<strong>Completed:</strong> " + data.completed;
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- Trong đoạn mã trên, Axios được sử dụng để thực hiện yêu cầu GET đến API JSONPlaceholder. Khi phản hồi được nhận, 
+    dữ liệu JSON được xử lý và hiển thị trong phần container. Lưu ý rằng Axios hỗ trợ các phương thức khác nhau như 
+    post, put, delete, ... tùy thuộc vào loại yêu cầu bạn cần thực hiện. -->

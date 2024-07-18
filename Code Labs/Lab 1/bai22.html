@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2.2</title>
+    <style>
+        #target{
+            border: 1px solid #000;
+            min-height: 300px;
+        }
+        .title{
+            color: red;
+            font-family: arial;
+        }
+    </style>
+</head>
+<body>
+    <div id="target"></div>
+    <script>
+        // Xác định DOM là thẻ div#target
+        var target = document.querySelector("#target");
+
+        // Tạo ra DOM mới là thẻ h2
+        var h2El = document.createElement("h2");
+
+        // Set Text hiển thị cho thẻ h2
+        h2El.innerText = "Hello Polytechnic";
+
+        // Tạo và gán giá trị cho thuộc tính class
+        h2El.setAttribute("class", "title");
+
+        // Add DOM h2 vào trong DOM div#target
+        target.appendChild(h2El);
+    </script>
+</body>
+</html>

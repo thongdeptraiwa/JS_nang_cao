@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palinedrome</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button type="button" id="check">Check</button>
+    <br>
+    <h2>Chuỗi đảo ngược: <span id="output"></span></h2>
+    <h2>Kết quả chuỗi vừa nhập: <span id="result"></span></h2>
+
+    <script>
+        // Xác định các DOM
+        var input = document.querySelector("#input");
+        var outputSpan = document.querySelector("#output");
+        var resultSpan = document.querySelector("#result");
+        var button = document.querySelector("#check");
+
+        button.onclick = function(){
+            // Lấy giá trị từ thẻ input
+            var inputValue = input.value;
+            if(inputValue !== ""){
+                // Chuyển chuỗi giá trị của input về mảng
+                var str2Arr = inputValue.split("");
+
+                // Đảo ngược mảng
+                var reverseArr = str2Arr.reverse();
+
+                // Ghép mảng lại thành chuỗi
+                var outputValue = reverseArr.join("");
+                outputSpan.innerText = outputValue;
+
+                // Kiểm tra giá trị chuỗi gốc và chuỗi sau khi đảo ngược
+                if(outputValue === inputValue){
+                    resultSpan.innerText = "Là chuỗi Palinedrome";
+                }else{
+                    resultSpan.innerText = "Không phải là chuỗi Palinedrome";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

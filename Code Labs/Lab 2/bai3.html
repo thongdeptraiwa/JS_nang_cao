@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi chuỗi sang camelCase</title>
+    <style>
+        p{
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="inputString">Nhập chuỗi:</label>
+    <input type="text" id="inputString" />
+
+    <button onclick="convertToCamelCase()">Convert</button>
+
+    <p id="result"></p>
+
+    <script>
+        function convertToCamelCase() {
+            // Lấy giá trị từ ô nhập chuỗi
+            const inputElement = document.getElementById('inputString');
+            const inputString = inputElement.value;
+
+            // Sử dụng regex để loại bỏ khoảng trắng và ký tự đặc biệt, chuyển sang camelCase
+            const camelCaseString = inputString.replace(/\W+(.)/g, (match, char) => char.toUpperCase());
+
+            // Hiển thị kết quả
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = camelCaseString;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thi</title>
+
+</head>
+<body>
+    <div>
+        <div id="container">
+            <p>Bai 1</p>
+            <button id="btn1" onclick="b1()">Button 1</button>
+            <button id="btn2" onclick="b1()">Button 2</button>
+        </div>
+        <div>
+            <p>Bai 2</p>
+            <div id="container">
+                <input type="text" id="input"/>
+                <button id="btn_b2" onclick="b2()">Submit</button>
+           </div>
+           <p id="message"></p>
+        </div>
+        <div>
+            <p>Bai 3</p>
+            <ul id="list">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <button id="btn_b3" onclick="b3()">Remove Last Item</button>
+        
+        </div>
+        
+       
+    </div>
+
+    <script>
+
+        function b1(){
+            console.log("Button clicked!");
+        }
+        //b2
+        function b2(){
+            document.querySelector("#message").innerHTML = "Button clicked!";
+        }
+        const enter_input = document.querySelector('#input');
+        enter_input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                b2();
+            }
+        });
+        function b3(){
+            document.querySelector("#list").lastChild.remove();  
+        }
+        //b4
+        class Rectangle {
+            constructor(chieu_dai, chieu_rong) {
+                this.chieu_dai = chieu_dai;
+                this.chieu_rong = chieu_rong;
+            }
+
+            dien_tich() {
+                console.log("Diện tích HCM: "+this.chieu_dai * this.chieu_rong);
+            }
+            chu_vi() {
+                console.log("Chu vi HCM: "+((this.chieu_dai + this.chieu_rong)*2));
+            }
+        }
+        var hcm = new Rectangle(5, 10);
+        hcm.dien_tich();
+        hcm.chu_vi();
+
+        //b5
+        function Person(name) {
+            this.name = name;
+        }
+        Person.prototype.greet = function () {
+            console.log("Hello, my name is " + this.name);
+        };
+        var john = new Person("John");
+        var anna = new Person("Anna");
+        console.log("\nb5");
+        john.greet();
+        anna.greet();
+
+
+        //b6
+        function delay (time) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    return resolve(time);
+                }, time);
+        })};
+        delay(2000)
+            .then((data) => {
+                console.log("\nb6");
+                console.log("đã qua "+data+" milisecond");
+            })
+
+
+        //b7
+        console.log("\nb7");
+        console.log("Start");
+        setTimeout(function () {
+            console.log("Timeout");
+        }, 0);
+        Promise.resolve().then(function () {
+            console.log("Promise");
+        });
+        console.log("End");
+
+
+    </script>
+</body>
+</html>
